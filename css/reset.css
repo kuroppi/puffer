@@ -1,0 +1,124 @@
+body {
+    font-family: sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+p,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+span,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+{
+    margin-top: 0;
+    padding: 0;
+    border: 0;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active,
+ul,
+li,
+u {
+    text-decoration: none;
+    list-style: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid grey;
+    margin: 1em 0;
+    padding: 0;
+}
+
+select {
+    font-size: 1em;
+    padding: 3px 30px 3px 5px;
+    cursor: pointer;
+}
+
+@media print {
+    .no-print {
+        display: none;
+    }
+    * {
+        color: black;
+        background: white;
+    }
+    /*.row .columns {
+        width: 100%;
+    }
+    .row {
+        min-height: 0 !important;
+        margin-bottom: 30px !important;
+    }*/
+}
+
+abbr {
+    border-bottom: 2px dotted grey;
+}

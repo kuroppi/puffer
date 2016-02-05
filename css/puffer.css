@@ -1,0 +1,2107 @@
+/* ****************************** */
+
+/*
+PUFFER CSS/JS FRAMEWORK
+
+Collaborators: Emmanuel Martinez, Bob Painter, Michelle Santos
+Version 1.0.0
+Updated on: 01-19-16
+
+Style guide
+
+Colors:
+HDR/FTR/BG -    Dk Brown:   #482B16
+NAV -           Lt Brown:   #926347
+Fonts, misc -   Gry Brown:  #A39988
+Links, CTAs -   Red:        #C02A24
+
+---------------------------
+Table Of Contents
+---------------------------
+
+RESET
+GENERAL STYLING
+RESPONSIVE TABLES
+FORMS
+CONTAINERS
+GRID
+HEADER ANIMATION CSS COMPONENT
+VIDEO BACKGROUND CSS COMPONENT
+MEET THE TEAM CSS COMPONENT
+FIXED FOOTER CSS COMPONENT
+SOCIAL SIDEBAR JS COMPONENT
+BLOG JS COMPONENT
+NAV SWIPE JS COMPONENT
+BACK TOP TOP JS COMPONENT
+
+*/
+
+/************************************
+  RESET
+************************************/
+
+@import url("reset.css");
+    
+/************************************
+  GENERAL STYLING
+************************************/
+
+@font-face {
+    font-family: "Raleway";
+    src: url(../fonts/Raleway-Regular.ttf);
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.25em; /* 20px */
+    line-height: 1.5;
+}
+ 
+main {
+    margin: 0 auto;
+    padding: 0 10px;
+}
+ 
+h1 {font-size: 60px; line-height: 1.5;}
+h2 {font-size: 45px; line-height: 1.5;}
+h3 {font-size: 35px; line-height: 1.5;}
+h4 {font-size: 30px; line-height: 1.5;}
+h5 {font-size: 25px; line-height: 1.5;}
+h6 {font-size: 20px; line-height: 1.5;}
+
+
+@media (max-width: 480px) {
+    h1 {font-size: 45px; line-height: 1.3;}
+    h2 {font-size: 33.75px; line-height: 1.3;}
+    h3 {font-size: 26.25px; line-height: 1.3;}
+    h4 {font-size: 22.50px; line-height: 1.3;}
+    h5 {font-size: 18px; line-height: 1.3;}
+    h6 {font-size: 16px; line-height: 1.3;}
+}
+ 
+/* ----- BLOCKQUOTE ----- */
+
+blockquote {
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    font-style: italic;
+    margin: 0.25em 0;
+    padding: 0.55em 70px;
+    line-height: 1.4;
+    position: relative;
+    color: #383838;
+    /*
+    background-image: url(../images/quotes.png);
+    background-position: top left;
+    background-repeat: no-repeat; */
+}
+blockquote:before {
+    display: block;
+    content: open-quote;
+    font-size: 250px;
+    position: absolute;
+    left: -40px;
+    top: -80px;
+    color: #7a7a7a;
+}
+ 
+/* ----- CITE ----- */
+
+blockquote cite {
+    color: #7a7a7a;
+    font-size: 18px;
+    display: block;
+    margin-top: 5px;
+}
+blockquote cite:before {
+    content: "\2014 \2009";
+}
+ 
+/* ----- TEXT-TRANSFORMATION ----- */
+
+.text-Cap {text-transform: capitalize;}
+.text-Upp {text-transform: uppercase;}
+.text-Low {text-transform: lowercase;}
+ 
+/* ----- ABBREVIATION ----- */
+
+.abbr {
+    border-bottom: 2px dotted #000;
+    text-decoration: none;
+}
+ 
+/* ----- ALIGNMENT CLASSES ----- */
+
+.text-Left {text-align: left;}
+.text-Center {text-align: center;}
+.text-Right {text-align: right;}
+ 
+ 
+/* ----- LISTS ----- */
+
+.list-square {list-style-type: square;}
+ 
+ 
+/* ----- ADDRESS ----- */
+
+.puffer-address {
+ 
+}
+.puffer-address > p:first-child {
+    font-weight: 800;
+}
+ 
+/* ----- CODE ----- */
+
+.puffer-code {
+    border: 1px solid #fff;
+    background-color: #838B8B;
+    color: #FFF;
+    padding: 5px 5px;
+    margin: 20px 10px;
+}
+
+/* ----- DEFAULT TABLE (NON-Responsive) ----- */
+
+table {
+    display: table;
+    color: #5a5c5e;
+    background-color: #fff;
+    border: 2px solid #d2f1ff;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    width: 100%;
+}
+table caption {
+    text-align: center;
+    font-size: 26px;
+    padding: .75em;
+}
+table thead th,
+table tbody td,
+table tr td {
+    display: table-cell;
+    padding: 18px;
+    vertical-align: center;
+    text-align: center;
+    border-top: 2px solid #d2f1ff;
+}
+table tr td:first-child {
+    font-weight: bold;
+}
+table thead {
+    background-color: #323436; /* guineafowl grey*/
+    color: #fff;
+}
+table thead tr th {
+    height: 2em;
+}
+ 
+/* ----- BORDERED TABLES (NON-Responsive) ----- */
+
+.bordered-table tr td {
+    border-right: 2px solid #d2f1ff;
+}
+.bordered-table tr th {
+    border-right: 2px solid #d2f1ff;
+}
+ 
+/* ----- STRIPED TABLES (NON-Responsive) ----- */
+
+.striped-table-odd tbody tr:nth-of-type(odd) {
+    background-color: #d2f1ff;
+    color: #46484a;
+}
+.striped-table-even tbody tr:nth-of-type(even) {
+    background-color: #d2f1ff;
+    color: #46484a;
+}
+ 
+/* ----- BUTTONS ----- */
+ 
+/* ----- SIZES -----*/
+ 
+.btn {
+    background-color: #2CBBBB;
+    text-align: center;
+    border: 1px solid #27A0A0; /* 1px solid #27A0A0; */
+    line-height: 3.5;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFF;
+    max-height: 90px;
+    font-family: 'Raleway', sans-serif;
+    font-size: .9em; /* default 20px */
+    white-space: normal;
+    padding: 8px 18px;
+    margin: 0 auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: none;
+    -webkit-border-radius: none;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+.btn-small {
+    background-color: #2CBBBB;
+    text-align: center;
+    border: 1px solid #27A0A0;
+    line-height: 2.5;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFF;
+    max-height: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-size: .7em; /* default 20px */
+    white-space: normal;
+    padding: 8px 18px;
+    margin: 0 auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: none;
+    -webkit-border-radius: none;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+.btn-xsmall {
+    background-color: #2CBBBB;
+    text-align: center;
+    border: 1px solid #27A0A0;
+    line-height: 1.5;
+    max-height: 90px;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFF;
+    max-height: 80px;
+    font-family: 'Raleway', sans-serif;
+    font-size: .6em; /* default 20px */
+    white-space: normal;
+    padding: 8px 18px;
+    margin: 0 auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: none;
+    -webkit-border-radius: none;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+.btn-large {
+    background-color: #2CBBBB;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #27A0A0;
+    line-height: 1.4;
+    width: 230px;
+    height: 130px;
+    white-space: normal;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFF;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1em; /* default 20px */
+    padding: 8px 18px;
+    margin: 0 auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: none;
+    -webkit-border-radius: none;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+.btn-full {
+    background-color: #2CBBBB;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #27A0A0;
+    line-height: 3.5;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    color: #FFF;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2em; /* default 20px */
+    white-space: normal;
+    padding: 8px 18px;
+    margin: 0 auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: none;
+    -webkit-border-radius: none;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+
+/* -----  HOVER & ACTIVE STATES -----*/
+
+.btn:hover,
+.btn-xsmall:hover,
+.btn-small:hover,
+.btn-large:hover,
+.btn-full:hover {
+    background-color: transparent;
+    color:  #2CBBBB;
+    border-color: #45D6D6;
+}
+.btn:active,
+.btn-xsmall:active,
+.btn-small:active,
+.btn-large:active,
+.btn-full:active {
+    background-color: #2CBBBB;
+    color: #FFF;
+    border-color: #45D6D6;
+}
+
+/* -----  RESET BUTTON -----*/
+
+.btn-reset {
+    background-color: #d64545;
+    text-align: center;
+    border: 1px solid transparent; /* 1px solid #27A0A0; */
+    line-height: 3.5;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFF;
+    font-family: 'Raleway', sans-serif;
+    font-size: .9em; /* default 20px */
+    padding: 8px 18px;
+    margin: 0 auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: none;
+    -webkit-border-radius: none;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+ 
+.btn-reset:hover {
+    background-color: transparent;
+    color: #d64545;
+    border-color: #d64545;
+}
+.btn-reset:active {
+    background-color: #d64545;
+    color: #FFF;
+    border-color: #d64545;
+}
+
+/* ----- RESPONSIVE IMAGE CLASS ----- */
+
+.res-image {
+    width: 100%;
+    height: auto;
+}
+ 
+/* ----- HELPER CLASSES ----- */
+
+.float-L {
+    float: left;
+}
+.float-R {
+    float: right;
+}
+.center {
+    margin: 0 auto;
+}
+.border {
+    border: 1px solid #CCC;
+}
+
+/************************************
+  RESPONSIVE TABLES
+************************************/
+ 
+table {
+    display: table;
+    color: #5a5c5e;
+    background-color: #fff;
+    border: 2px solid #d2f1ff;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2em;
+ 
+}
+table caption {
+    text-align: center;
+    font-size: 20px;
+    padding: 1em;
+}
+/* Striping */
+tr:nth-of-type(odd) {
+    background: #d2f1ff;
+}
+thead tr th {
+    text-align: center;
+    background: #333;
+    color: #FFF;
+ 
+}
+td, th {
+    height: 20px;
+    padding: 18px;
+    text-align: left;
+}
+tbody tr td {
+    text-align: center;
+    padding: 18px;
+}
+table thead {
+    background-color: #323436; /* guineafowl grey*/
+    color: #fff;
+}
+table thead tr th {
+    height: 2em;
+}
+ 
+/*
+Max width before this PARTICULAR table gets nasty.
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen
+    and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px)  {
+ 
+    /* Force table to not be like tables anymore */
+ 
+    .res-table table, 
+    .res-table thead, 
+    .res-table tbody, 
+    .res-table th, 
+    .res-table td, 
+    .res-table tr {
+    display: block;
+    }
+ 
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .res-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+ 
+    .res-table tr { border: 1px solid #ccc; font-size: 14px; }
+ 
+    .res-table td {
+    /* Behave  like a "row" */
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+ 
+    .res-table td:before {
+    /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 18.5px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+    }
+        
+    .res-table td:last-of-type {
+        padding-bottom: 40px;
+    }
+ 
+    /* Label your data */
+    .res-table td:nth-of-type(1):before { content: "#"; }
+    .res-table td:nth-of-type(2):before { content: "First Name"; }
+    .res-table td:nth-of-type(3):before { content: "Last Name"; }
+    .res-table td:nth-of-type(4):before { content: "Age"; }
+    .res-table td:nth-of-type(5):before { content: "Occupation"; }
+    .res-table td:nth-of-type(6):before { content: "Location"; }
+}
+
+/************************************
+  FORMS
+************************************/
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+form {
+    background: #323436; /* guineafowl puffer */
+    padding: 20px;
+    margin: 50px auto;
+    border-radius: 4px;
+    /* for users who like box-shadow
+    box-shadow: 0 4px 10px 4px #232332; */
+}
+
+form h1 {
+    text-align: center;
+    color: #FFF;
+    font-weight: 300;
+    margin: 0 0 50px;
+}
+
+.textInputs label {
+    position: relative;
+    -webkit-transform: translateY(6px);
+    transform: translateY(6px);
+    left: 0px;
+    bottom: 2px;
+    color: #cfd9d7;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    -webkit-backface-visibility: hidden;
+    pointer-events: none;
+    font-size: 20px;
+}
+.textInputs label .req {
+    margin: 2px;
+    color: #45D6D6;
+}
+
+.textInputs label.active {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    left: 2px;
+    font-size: 14px;
+}
+.textInputs label.active .req {
+    opacity: 0;
+}
+
+.textInputs label.highlight {
+    color: #FFF;
+}
+
+.textInputs input, textarea, select {
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 5px 10px;
+    background: none;
+    background-image: none;
+    border: 1px solid #a0b3b0;
+    color: #FFF;
+    border-radius: 0;
+    position: relative;
+    margin-bottom: 20px;
+    -webkit-transition: border-color .25s ease, box-shadow .25s ease;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.textInputs input:focus, .textInputs textarea:focus {
+    outline: 0;
+    border-color: #45D6D6;
+}
+
+.textInputs textarea {
+    border: 1px solid #a0b3b0;
+    height: 200px;
+    resize: vertical;
+    overflow: auto;
+}
+/*
+.form-slim .field-wrap {
+    position: relative;
+    margin-bottom: 25px;
+}*/
+
+.text-inline:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.text-inline > div {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+}
+
+.text-inline > div:last-child {
+    margin: 0px;
+}
+
+legend {
+    color: #cfd9d7;
+    font-size: 20px;
+}
+
+/* ----- Radio Buttons ----- */
+    
+.radio {
+    margin: 10px 0px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+    color: #cfd9d7;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    -webkit-transition: border-color .25s ease, box-shadow .25s ease;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+input[type="radio"] + label span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0px 14px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+input[type="radio"] + label span {
+    background-color: #FFF;
+}
+
+input[type="radio"]:checked + label span {
+    background-color: #45D6D6;
+}
+
+ input[type="radio"] + label span,
+ input[type="radio"]:checked + label span {
+    -webkit-transition: background-color 0.1s linear;
+    -o-transition: background-color 0.25s linear;
+    -moz-transition: background-color 0.25s linear;
+    transition: background-color 0.25s linear;
+}
+
+/* ----- CHECKBOXES ----- */
+    
+.checkbox {
+    margin: 10px 0px;
+}
+
+.checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox input[type="checkbox"] + label {
+    color: #cfd9d7;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    -webkit-transition: border-color .25s ease, box-shadow .25s ease;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.checkbox input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0px 14px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    -moz-border-radius: 0%;
+    border-radius: 0%;
+}
+
+ input[type="checkbox"] + label span {
+    background-color: #FFF;
+}
+
+ input[type="checkbox"]:checked + label span {
+     background-color: #45D6D6;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+input[type="checkbox"] + label span,
+input[type="checkbox"]:checked + label span {
+    -webkit-transition: background-color 0.25s linear;
+    -o-transition: background-color 0.25s linear;
+    -moz-transition: background-color 0.25s linear;
+    transition: background-color 0.25s linear;
+}
+
+/************************************
+  CONTAINERS (BOX - LINE)
+************************************/
+
+.box {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.box:after {
+    clear: both;
+}
+
+.line:after {
+    clear: both;
+}
+
+.line:after {
+    content: "";
+    display: table;
+}
+
+/************************************
+  GRID
+************************************/
+
+.md-1, .md-2, .md-3, .md-4, .md-5, .md-6 {
+  float: left;
+}
+.md-6 {
+    width: 100%;
+  }
+.md-5 {
+    width: 83.33333333%;
+  }
+.md-4 {
+    width: 66.66666667%;
+  }
+.md-3 {
+    width: 50%;
+  }
+.md-2 {
+    width: 33.33333333%;
+  }
+.md-1 {
+    width: 16.66666667%;
+  }
+
+@media (min-width: 768px) {
+.lg-6 {
+    width: 100%;
+  }
+.lg-5 {
+    width: 83.33333333%;
+  }
+.lg-4 {
+    width: 66.66666667%;
+  }
+.lg-3 {
+    width: 50%;
+  }
+.lg-2 {
+    width: 33.33333333%;
+  }
+.lg-1 {
+    width: 16.66666667%;
+  }
+.lg-1, .lg-2, .lg-3, .lg-4, .lg-5, .lg-6 {
+    float: left;
+  }
+}
+
+@media (min-width: 992px) {
+
+.xl-6 {
+    width: 100%;
+  }
+.xl-5 {
+    width: 83.33333333%;
+  }
+.xl-4 {
+    width: 66.66666667%;
+  }
+.xl-3 {
+    width: 50%;
+  }
+.xl-2 {
+    width: 33.33333333%;
+  }
+.xl-1 {
+    width: 16.66666667%;
+  }
+.xl-1, .xl-2, .xl-3, .xl-4, .xl-5, .xl-6 {
+    float: left;
+  }
+}
+
+@media (min-width: 1200px) {
+.full-6 {
+    width: 100%;
+  }
+.full-5 {
+    width: 83.33333333%;
+  }
+.full-4 {
+    width: 66.66666667%;
+  }
+.full-3 {
+    width: 50%;
+  }
+.full-2 {
+    width: 33.33333333%;
+  }
+.full-1 {
+    width: 16.66666667%;
+  }
+.full-1, .full-2, .full-3, .full-4, .full-5, .full-6 {
+    float: left;
+  }
+}
+    
+/************************************
+  HEADER ANIMATION CSS COMPONENT
+************************************/
+
+/* ----- FADE IN FROM TOP: Superman ----- */
+
+.header-Superman {
+    -webkit-animation: Superman 1.2s;
+    -moz-animation: Superman 1.2s;
+    -o-animation: Superman 1.2s;
+}
+
+.title-Superman {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Raleway';
+    font-size: 150px;
+    line-height: 1.2em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-animation: Superman 1s;
+    -moz-animation: Superman 1s;
+    -o-animation: Superman 1s;
+}
+
+@-webkit-keyframes Superman {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@-moz-keyframes Superman {
+    from {
+        opacity: 0;
+        -moz-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    to {
+        opacity: 1;
+        -moz-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes Superman {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.Superman {
+    -webkit-animation-name: Superman;
+    -moz-animation-name: Superman;
+    -o-animation: Superman;
+    animation-name: Superman;
+}
+
+/* ----- FLY IN FROM LEFT: SupermanLeft ----- */
+
+.header-SupermanLeft {
+    -webkit-animation: Superman 1s;
+    -moz-animation: Superman 1s;
+    -o-animation: Superman 1s;
+}
+
+.title-SupermanLeft {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Raleway';
+    font-size: 150px;
+    line-height: 1.2em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-animation: SupermanLeft 1s;
+    -moz-animation: SupermanLeft 1s;
+    -o-animation: SupermanLeft 1s;
+}
+
+@-webkit-keyframes SupermanLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@-moz-keyframes SupermanLeft {
+    from {
+        opacity: 0;
+        -moz-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -moz-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes SupermanLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.SupermanLeft {
+    -webkit-animation-name: SupermanLeft;
+    -moz-animation-name: SupermanLeft;
+    -o-animation-name: SupermanLeft;
+    animation-name: SupermanLeft;
+}
+
+/* ----- FLY IN FROM RIGHT: SupermanRight ----- */
+
+.header-SupermanRight {
+    -webkit-animation: Superman 1s;
+    -moz-animation: Superman 1s;
+    -o-animation: Superman 1s;
+}
+
+.title-SupermanRight {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Raleway';
+    font-size: 150px;
+    line-height: 1.2em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-animation: SupermanRight 1s;
+    -moz-animation: SupermanRight 1s;
+    -o-animation: SupermanRight 1s;
+}
+
+@-webkit-keyframes SupermanRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        -moz-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        -moz-transform: none;
+        transform: none;
+    }
+}
+@-moz-keyframes SupermanRight {
+    from {
+        opacity: 0;
+        -moz-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -moz-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes SupermanRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        -moz-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        -moz-transform: none;
+        transform: none;
+    }
+}
+
+.SupermanRight {
+    -webkit-animation-name: SupermanRight;
+    -moz-animation-name: SupermanRight;
+    -o-animation-name: SupermanRight;
+    animation-name: SupermanRight;
+}
+
+/* ----- FADE IN FROM LEFT: PufferLeft ----- */
+    
+.header-PufferLeft {
+    -webkit-animation: PufferLeft 1s;
+    -moz-animation: PufferLeft 1s;
+    -o-animation: PufferLeft 1s;
+}
+
+.title-PufferLeft {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Raleway';
+    font-size: 150px;
+    line-height: 1.2em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-animation: PufferLeft 1s;
+    -moz-animation: PufferLeft 1s;
+    -o-animation: PufferLeft 1s;
+}
+
+@-webkit-keyframes PufferLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@-moz-keyframes PufferLeft {
+    from {
+        opacity: 0;
+        -moz-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -moz-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes PufferLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.PufferLeft {
+    -webkit-animation-name: PufferLeft;
+    -moz-animation-name: PufferLeft;
+    -o-animation-name: PufferLeft;
+    animation-name: PufferLeft;
+}
+
+/* ----- FADE IN FROM RIGHT: PufferRight ----- */
+
+.header-PufferRight {
+    -webkit-animation: PufferRight 1s;
+    -moz-animation: PufferRight 1s;
+    -o-animation: PufferRight 1s;
+}
+
+.title-PufferRight {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Raleway';
+    font-size: 150px;
+    line-height: 1.2em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-animation: PufferRight 1s;
+    -moz-animation: PufferRight 1s;
+    -o-animation: PufferRight 1s;
+}
+
+@-webkit-keyframes PufferRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        -moz-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        -moz-transform: none;
+        transform: none;
+    }
+}
+@-moz-keyframes PufferRight {
+    from {
+        opacity: 0;
+        -moz-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -moz-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes PufferRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        -moz-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        -moz-transform: none;
+        transform: none;
+    }
+}
+
+.PufferRight {
+    -webkit-animation-name: PufferRight;
+    -moz-animation-name: PufferRight;
+    -o-animation-name: PufferRight;
+    animation-name: PufferRight;
+}
+
+/* ----- PUFFER MIX ----- */
+
+.header-PufferMix {
+    -webkit-animation: PufferRight 1s;
+    -moz-animation: PufferRight 1s;
+    -o-animation: PufferRight 1s;
+}
+ 
+.title-PufferMix {
+    color: #00D0FF;
+    font-family: 'Raleway', sans-serif;
+    font-size: 150px;
+    line-height: 1.2em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-animation: PufferLeft 1s;
+    -moz-animation: PufferLeft 1s;
+    -o-animation: PufferLeft 1s;
+}
+ 
+@-webkit-keyframes PufferMix {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        -moz-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+ 
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        -moz-transform: none;
+        transform: none;
+    }
+}
+@-moz-keyframes PufferMix {
+    from {
+        opacity: 0;
+        -moz-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+ 
+    to {
+        opacity: 1;
+        -moz-transform: none;
+        transform: none;
+    }
+}
+ 
+@keyframes PufferMix {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        -moz-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+ 
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        -moz-transform: none;
+        transform: none;
+    }
+}
+ 
+.PufferMix {
+    -webkit-animation-name: PufferMix;
+    -moz-animation-name: PufferMix;
+    -o-animation-name: PufferMix;
+    animation-name: PufferMix;
+}
+
+/************************************
+  VIDEO BACKGROUND CSS COMPONENT
+************************************/
+    
+.video-background video {
+    position: fixed;
+    z-index: -999;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-color: black;
+}
+        
+.video-overlay {
+    background-color: black;
+    position: absolute;
+    z-index: -99;
+    top: 0;
+    left: 0;
+    opacity: .75;
+    width: 100%;
+    height: 100%;
+}
+        
+.content-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    opacity: 1;
+}
+
+/* ----- FULL SCREEN VIDEO CONTAINER ----- */
+
+.video-container video {
+    width: 100%;
+}
+
+/************************************
+  MEET THE TEAM CSS COMPONENT
+************************************/
+    
+/* ----- HOVER EFFECT: Overlay ----- */
+
+.bio-box {
+    height: 400px;
+    margin: 0;
+}
+
+.wrapper {
+    margin: 0px 5px 0 0px;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+}
+.wrapper img {
+    vertical-align: bottom;
+    height: 400px;
+    width: 100%;
+
+}
+
+.wrapper .overlay {
+    border-top: 100px solid #27A0A0;
+    border-left: 100px solid transparent;
+    position: absolute;
+    top: 0;
+    height: 0;
+    right: 0;
+    width: 0;
+    opacity: .95;
+    text-indent: -9999px;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+
+}
+.wrapper:hover .overlay {
+    border-top: 1200px solid #252F3A;
+    border-left: 1200px solid transparent;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.wrapper .corner-overlay-content {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #FFF;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.wrapper:hover .corner-overlay-content {
+    opacity: 0;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.wrapper .description {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    color: #FFF;
+    padding: 30px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper:hover .description {
+    opacity: 1;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    -webkit-transition-delay: 0.3s;
+    -moz-transition-delay: 0.3s;
+    -o-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+
+.wrapper .description p {
+    text-align: center;
+    font-size: 20px;
+}
+
+.wrapper .description h3 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    border-bottom: 1px solid #FFF;
+    padding: 0 0 12px;
+}
+.wrapper figcaption h2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0em 10px;
+    width: 100%;
+}
+
+
+/************************************
+  FIXED FOOTER
+************************************/
+
+.fixedfooter {
+    position: fixed;
+    bottom: 0;
+    min-height: 70px;
+    width: 100%;
+    background: #2CBBBB;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    z-index: 50;
+}
+
+/************************************
+  SOCIAL SIDEBAR CSS COMPONENT
+************************************/
+
+/* ----- SOCIAL SIDEBAR "DROPDOWN" ----- */
+
+.social-button {
+    right: 0;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    width: 60px;
+    font-size: 1.5em;
+    line-height: .3em;
+    z-index:999;
+}
+
+.social-sidebar {
+    right: 0;
+    position: fixed;
+    top: 60px;
+    z-index: 999;
+}
+
+.social-sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.social-sidebar a {
+    color: #FFF;
+    display: block;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    font-size: 1.5em;
+    line-height: 2em;
+    position: relative;
+    text-align: center;
+}
+
+.social-sidebar a[class*="facebook"],
+.social-sidebar a[class*="facebook"] :active {background-color: #3b5998;}
+
+.social-sidebar a[class*="twitter"],
+.social-sidebar a[class*="twitter"] :active {background-color: #00aced;}
+
+.social-sidebar a[class*="youtube"],
+.social-sidebar a[class*="youtube"] :active {background-color: #bb0000;}
+
+.social-sidebar a[class*="instagram"],
+.social-sidebar a[class*="instagram"] :active {background-color: #517fa4;}
+
+.social-sidebar a[class*="pinterest"],
+.social-sidebar a[class*="pinterest"] :active {background-color: #cc2127;}
+
+.social-sidebar a[class*="tumblr"],
+.social-sidebar a[class*="tumblr"] :active {background-color: #32506d;}
+
+.social-sidebar a[class*="soundcloud"],
+.social-sidebar a[class*="soundcloud"] :active {background-color: #ff3a00;}
+
+.social-sidebar a[class*="vine"],
+.social-sidebar a[class*="vine"] :active {background-color: #00bf8f;}
+
+.social-sidebar a[class*="facebook"]:hover {background-color: #FFF; color: #3b5998;}
+.social-sidebar a[class*="twitter"]:hover {background-color: #FFF; color: #00aced;}
+.social-sidebar a[class*="youtube"]:hover {background-color: #FFF; color: #bb0000;}
+.social-sidebar a[class*="instagram"]:hover {background-color: #FFF; color: #517fa4;}
+.social-sidebar a[class*="pinterest"]:hover {background-color: #FFF; color: #cc2127;}
+.social-sidebar a[class*="tumblr"]:hover {background-color: #FFF; color: #32506d;}
+.social-sidebar a[class*="soundcloud"]:hover {background-color: #FFF; color: #ff3a00;}
+.social-sidebar a[class*="vine"]:hover {background-color: #FFF; color: #00bf8f;}
+
+/* social media button LEFT side*/
+.social-button-left {
+    left: 0;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    width: 60px;
+    font-size: 1.5em;
+    line-height: .3em;
+    z-index:999;
+}
+
+.social-sidebar-left {
+    left: 0;
+    position: fixed;
+    top: 60px;
+    z-index: 999;
+}
+
+.social-sidebar-left ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.social-sidebar-left a {
+    color: #FFF;
+    display: block;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    font-size: 1.5em;
+    line-height: 2em;
+    position: relative;
+    text-align: center;
+}
+
+.social-sidebar-left a[class*="facebook"],
+.social-sidebar-left a[class*="facebook"] :active {background-color: #3b5998;}
+
+.social-sidebar-left a[class*="twitter"],
+.social-sidebar-left a[class*="twitter"] :active {background-color: #00aced;}
+
+.social-sidebar-left a[class*="youtube"],
+.social-sidebar-left a[class*="youtube"] :active {background-color: #bb0000;}
+
+.social-sidebar-left a[class*="instagram"],
+.social-sidebar-left a[class*="instagram"] :active {background-color: #517fa4;}
+
+.social-sidebar-left a[class*="pinterest"],
+.social-sidebar-left a[class*="pinterest"] :active {background-color: #cc2127;}
+
+.social-sidebar-left a[class*="tumblr"],
+.social-sidebar-left a[class*="tumblr"] :active {background-color: #32506d;}
+
+.social-sidebar-left a[class*="soundcloud"],
+.social-sidebar-left a[class*="soundcloud"] :active {background-color: #ff3a00;}
+
+.social-sidebar-left a[class*="vine"],
+.social-sidebar-left a[class*="vine"] :active {background-color: #00bf8f;}
+
+.social-sidebar-left a[class*="facebook"]:hover {background-color: #FFF; color: #3b5998;}
+.social-sidebar-left a[class*="twitter"]:hover {background-color: #FFF; color: #00aced;}
+.social-sidebar-left a[class*="youtube"]:hover {background-color: #FFF; color: #bb0000;}
+.social-sidebar-left a[class*="instagram"]:hover {background-color: #FFF; color: #517fa4;}
+.social-sidebar-left a[class*="pinterest"]:hover {background-color: #FFF; color: #cc2127;}
+.social-sidebar-left a[class*="tumblr"]:hover {background-color: #FFF; color: #32506d;}
+.social-sidebar-left a[class*="soundcloud"]:hover {background-color: #FFF; color: #ff3a00;}
+.social-sidebar-left a[class*="vine"]:hover {background-color: #FFF; color: #00bf8f;}
+
+/* ----- STYLES FOR CLICK EVENT ----- */
+
+.fadein-1 {
+    opacity: 0;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
+.fadein-2 {
+    opacity: 0;
+    -moz-transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;
+    -webkit-transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
+}
+.fadein-3 {
+    opacity: 0;
+    -moz-transition: opacity 0.6s ease-in-out;
+    -o-transition: opacity 0.6s ease-in-out;
+    -webkit-transition: opacity 0.6s ease-in-out;
+    transition: opacity 0.6s ease-in-out;
+}
+.fadein-4 {
+    opacity: 0;
+    -moz-transition: opacity 0.8s ease-in-out;
+    -o-transition: opacity 0.8s ease-in-out;
+    -webkit-transition: opacity 0.8s ease-in-out;
+    transition: opacity 0.8s ease-in-out;
+}
+.fadein-5 {
+    opacity: 0;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+.fadein-6 {
+    opacity: 0;
+    -moz-transition: opacity 1.2s ease-in-out;
+    -o-transition: opacity 1.2s ease-in-out;
+    -webkit-transition: opacity 1.2s ease-in-out;
+    transition: opacity 1.2s ease-in-out;
+}
+.fadein-7 {
+    opacity: 0;
+    -moz-transition: opacity 1.4s ease-in-out;
+    -o-transition: opacity 1.4s ease-in-out;
+    -webkit-transition: opacity 1.4s ease-in-out;
+    transition: opacity 1.4s ease-in-out;
+}
+.fadein-8 {
+    opacity: 0;
+    -moz-transition: opacity 1.6s ease-in-out;
+    -o-transition: opacity 1.6s ease-in-out;
+    -webkit-transition: opacity 1.6s ease-in-out;
+    transition: opacity 1.6s ease-in-out;
+}
+.fadein-1, .fadein-2, .fadein-3, .fadein-4,
+.fadein-5, .fadein-6, .fadein-7, .fadein-8 {
+    opacity: 1;
+}
+
+.fadeout-1 {
+    opacity: 0;
+    -moz-transition: opacity 0.8s ease-in-out;
+    -o-transition: opacity 0.8s ease-in-out;
+    -webkit-transition: opacity 0.8s ease-in-out;
+    transition: opacity 0.8s ease-in-out;
+}
+.fadeout-2 {
+    opacity: 0;
+    -moz-transition: opacity 0.7s ease-in-out;
+    -o-transition: opacity 0.7s ease-in-out;
+    -webkit-transition: opacity 0.7s ease-in-out;
+    transition: opacity 0.7s ease-in-out;
+}
+.fadeout-3 {
+    opacity: 0;
+    -moz-transition: opacity 0.6s ease-in-out;
+    -o-transition: opacity 0.6s ease-in-out;
+    -webkit-transition: opacity 0.6s ease-in-out;
+    transition: opacity 0.6s ease-in-out;
+}
+.fadeout-4 {
+    opacity: 0;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+}
+.fadeout-5 {
+    opacity: 0;
+    -moz-transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;
+    -webkit-transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
+}
+.fadeout-6 {
+    opacity: 0;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+.fadeout-7 {
+    opacity: 0;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
+.fadeout-8 {
+    opacity: 0;
+    -moz-transition: opacity 0.1s ease-in-out;
+    -o-transition: opacity 0.1s ease-in-out;
+    -webkit-transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
+}
+
+
+/************************************
+  BLOG CSS/JS COMPONENT
+************************************/
+
+@font-face {
+    font-family: bebas;
+    src: url(../fonts/BebasNeue-Regular.otf);
+}
+
+.blog {
+    position: relative;
+    width: 25%;
+    padding-bottom: 25%;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+}
+.blog img {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    top: 0;
+    left: -50%;
+    right: -50%;
+    margin: auto;
+    padding: 0;
+}
+.blog-title {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(29, 106, 174, 0.35);
+    color: #ffffff;
+    visibility: hidden;
+    opacity: 0;
+    font-family: bebas;
+    font-size: 2.5em;
+}
+.blog-category {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    color: #ffffff;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1.5em;
+}
+.blog:hover .blog-title, .blog:hover .blog-category {
+    visibility: visible;
+    opacity: 1;
+    margin: 0;
+}
+.blog-p, .blog-author, .blog-date {
+    display: none;
+}
+
+/* ----- LIGHTBOX ----- */
+
+.lightbox-background {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    display: none;
+}
+
+.lightbox-page {
+    position: fixed;
+    display: none;
+    overflow: auto;
+    background-color: #ffffff;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    width: 75%;
+    max-width: 1465px;
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-height: 80%;
+    height: 80%;
+}
+
+/* ----- LIGHTBOX CONTENT ----- */
+
+.lightbox-image-right, .lightbox-text-right, .lightbox-image-left, .lightbox-text-left {
+    width: calc((98% - 60px)/2);
+    float: left;
+}
+.lightbox-image-left, .lightbox-text-left {
+    margin-right: 1%;
+}
+.lightbox-image-right, .lightbox-text-right {
+    margin-left: 1%;
+}
+.lightbox-image-left img, .lightbox-image-right img {
+    width: calc((98% - 60px)/2);
+    width: 100%;
+    max-height: 695px;
+}
+
+.lightbox-close {
+    height: 40px;
+    width: 40px;
+    float: right;
+    margin-left: 20px;
+    font-size: 2.5em;
+    margin-top: -25px;
+}
+.lightbox-close:hover {
+    color: #d64545;
+}
+
+.lightbox-title {
+    font-family: bebas;
+    line-height: 1em;
+    margin-top: -9px;
+    margin-bottom: 10px;
+}
+.blog-info {
+    border-bottom: 1px solid black;
+}
+.blog-info-color {
+    color: #d64545;
+}
+
+.prev-img, .next-img {
+    font-size: 2.5em;
+    color: black;
+}
+
+.prev-img {
+    float: left;
+}
+
+.next-img {
+    float: right;
+}
+
+/* ----- MEDIA QUERIES ----- */
+
+@media screen and (max-width: 1440px) {
+    .blog {
+        width: 33%;
+        padding-bottom: 33%;
+    }
+}
+@media screen and (max-width: 960px) {
+    .blog {
+        width: 50%;
+        padding-bottom: 50%;
+    }
+    .lightbox-image-right, .lightbox-text-right {
+        clear: both;
+        float: left;
+        width: 100%;
+    }
+    .lightbox-image-left, .lightbox-text-left {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .lightbox-image-left, .lightbox-image-right {
+        margin-top: 50px;
+    }
+
+    .lightbox-image-right {
+        margin-bottom: 25px;
+    }
+
+    .lightbox-close, .lightbox-close-hover {
+        position: absolute;
+        right: 0;
+        margin-right: 20px
+    }
+}
+@media screen and (max-width: 480px) {
+    .blog {
+        width: 100%;
+        padding-bottom: 100%;
+    }
+}
+
+/************************************
+  SWIPE NAV CSS/JS COMPONENT
+************************************/
+
+.swipe-nav a {
+    font-size: 1.5em;
+    color: white;
+    line-height: 2em;
+}
+
+.swipe-nav ul {
+    padding-left: 0px;
+    
+}
+.swipe-nav li a, .swipe-nav h3 {
+    padding-left: 60px;
+    
+}
+
+
+.dropdown1>a:after,
+.dropdown2>a:after,
+.dropdown3>a:after,
+.dropdown4>a:after,
+.dropdown5>a:after,
+.dropdown6>a:after,
+.dropdown7>a:after,
+.dropdown8>a:after,
+.dropdown9>a:after,
+.dropdown10>a:after,
+.newdrop1>a:after,
+.newdrop2>a:after,
+.newdrop3>a:after,
+.newdrop4>a:after,
+.newdrop5>a:after,
+.newdrop6>a:after,
+.newdrop7>a:after,
+.newdrop8>a:after,
+.newdrop9>a:after,
+.newdrop10>a:after
+{
+    content: " >";
+}
+
+.swipe-nav li:hover {
+    background: #2CBBBB;
+    
+}
+
+.swipe-nav {
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 120%;
+    margin-top: -40px;
+    z-index: 999;
+}
+
+.swipe-icon {
+    background: #2CBBBB;
+    padding: 7.719px 10px;
+    color: white; 
+    position: fixed;
+    top: 0;
+    /*left: 0;*/
+    z-index: 9999;
+    cursor: pointer;
+}
+
+
+.swipe-nav ul:first-child {
+    margin-top: 80px;
+}
+
+.idk li a {
+    font-size: 1.2em;
+    
+}
+
+@media screen and (min-width: 550px) {
+    
+}
+
+/* ----- Larger than mobile ----- */
+
+@media (min-width: 400px) {
+.swipe-nav a {
+        font-size: 1.7em;
+        line-height: 2em;
+    }
+    .idk li {
+        display: inline;
+    }
+    .idk li a {
+        font-size: 1em;
+        line-height: 2em;
+    }
+}
+
+/* ----- Larger than phablet ----- */
+
+@media (min-width: 550px) {
+.swipe-nav a {
+        font-size: 1.9em;
+        line-height: 2em;
+    }
+
+    .idk li a {
+        font-size: 1.3em;
+        line-height: 1.3em;
+    }
+}
+
+/* ----- Larger than tablet ----- */
+
+@media (min-width: 750px) {
+.swipe-nav a {
+        font-size: 2.3em;
+        line-height: 2.2em;
+    }
+
+    .idk li a {
+        font-size: 1.5em;
+        line-height: 1.5em;
+    }
+
+}
+
+/* ----- Larger than desktop ----- */
+
+@media (min-width: 1000px) {
+.swipe-nav a {
+        font-size: 2.5em;
+        line-height: 2.5em;
+    }
+
+    .idk li a {
+        font-size: 1.7em;
+        line-height: 1.8em;
+    }
+}
+
+/* ----- Larger than Desktop HD ----- */
+
+@media (min-width: 1200px) {
+.swipe-nav a {
+        font-size: 3em;
+        line-height: 2.5em;
+    }
+
+    .idk li a {
+        font-size: 2em;
+        line-height: 1.8em;
+    }
+}
+
+/* 
+
+/************************************
+  BACK TO TOP CSS/JS COMPONENT
+************************************/
+
+.top a {
+    color: white;
+}
+
+.top {
+    text-align: center;
+    background: #2CBBBB;
+    border: 1px solid #27A0A0;
+    float: right;
+    width: 70px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+}
