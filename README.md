@@ -2,7 +2,7 @@ The Puffer CSS/JavaScript Framework - MAKING THINGS BIGGER AND LIVLIER
 
 Created by - [Bob Painter](http://www.kuroppi.com), [Emmanuel Martinez](http://github.com/egmartinez98), Michelle S.
 
-[Puffer Framework Website and Documentation](http://www.strevival.com/puffer)
+[Puffer Framework Website and Documentation](http://www.kuroppi.com/puffer)
 
 WHAT’S INCLUDED:
 
